@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>FB OG Preview Maker</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f5f5f5; }
+    input, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+    button { background: green; color: white; border: none; }
+  </style>
+</head>
+<body>
+  <h2>🔗 OG Preview Creator (Auto Link)</h2>
+  <input id="img" placeholder="Paste image URL" />
+  <input id="url" placeholder="Paste destination URL" />
+  <button onclick="makeLink()">Generate Share Link</button>
+  <p id="result"></p>
+
+  <script>
+    function makeLink() {
+      const img = encodeURIComponent(document.getElementById('img').value.trim());
+      const url = encodeURIComponent(document.getElementById('url').value.trim());
+
+      if (!img || !url) return alert("Please fill both fields.");
+
+      const previewLink = `https://your-site.netlify.app/generate.html?img=${img}&url=${url}`;
+      document.getElementById('result').innerHTML = `
+        ✅ Your preview link:<br>
+        <a href="${previewLink}" target="_blank">${previewLink}</a>
+        <br><br>🔗 Post it on Facebook
+      `;
+    }
+  </script>
+</body>
+</html>
