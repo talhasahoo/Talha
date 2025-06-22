@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    const params = new URLSearchParams(location.search);
+    const img = params.get("img");
+    const url = params.get("url");
+
+    document.write(`
+      <meta property="og:title" content="Watch Now!" />
+      <meta property="og:description" content="Tap to view full content!" />
+      <meta property="og:image" content="${img}" />
+      <meta property="og:url" content="${url}" />
+      <meta property="og:type" content="website" />
+      <meta http-equiv="refresh" content="0; url=${url}" />
+      <title>Redirecting...</title>
+      <body>
+        <a href="${url}"><img src="${img}" style="width:100%;height:auto;"></a>
+      </body>
+    `);
+  </script>
+</head>
+</html>
